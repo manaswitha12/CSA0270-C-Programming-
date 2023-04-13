@@ -1,0 +1,36 @@
+#include<stdio.h>
+#define SIZE  100
+#define ASCIISIZE 256
+ 
+int main()
+{
+ 
+    char inputStr[SIZE];
+    int i, highFreq = 0, ch = 0;
+    char frequency[ASCIISIZE] = {0};
+    printf("Enter a string : ");
+    gets(inputStr);
+    for(i = 0; inputStr[i]; i++)
+    {
+        frequency[inputStr[i]]++;
+    }
+    printf("Frequency of Characters in given string : \n");
+    for(i = 0; i<ASCIISIZE; i++)
+    {
+        if(frequency[i] != 0)
+        {
+            printf("Character : '%c' - Frequency: %d\n", i, frequency[i]);
+            
+            if(highFreq < frequency[i])
+            {
+               
+                highFreq = frequency[i];
+                ch = i;
+            }
+        }
+    }
+ 
+    printf("Character '%c' is the High Frequency Character(Frequency: %d) in the given string\n", ch, highFreq);
+ 
+    return 0;
+}
